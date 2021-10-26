@@ -1,2 +1,5 @@
-export class Projects {
+export class Project {
+    constructor(public title:string, public description:string, public url:any, public image:any){
+
+    }
 }

@@ -47,6 +47,7 @@
                   "maximumWarning": "2kb",
                   "maximumError": "4kb"
                 }
+                
               ],
               "fileReplacements": [
                 {
@@ -56,6 +57,7 @@
               ],
               "outputHashing": "all"
             },
+            
             "development": {
               "buildOptimizer": false,
               "optimization": false,

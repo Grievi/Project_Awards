@@ -6,7 +6,11 @@
               Lets try out something!
           </h5> 
           <div class="card">
-              
+            <button (click)='callTheApi()' class="btn btn-outline-primary">Click Me</button>
+              <ul *ngFor='let results of result'>
+                 
+                  <li>{{results.description}}</li>
+              </ul>
           </div> 
         </div>
     </div>

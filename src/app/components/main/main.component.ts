@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Project } from '../../projects'
+import { ProjectService} from '../../service/project.service'
 
 @Component({
   selector: 'app-main',
@@ -6,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
+  result:Project[]=[]
 
-  constructor() { }
+  constructor(private api:ProjectService) { }
 
-  ngOnInit(): void {
+  callTheApi(){
+    this.api.getApi().subscribe((result:any)=>{
+      console.log('success', result);
+      this.result=result
+    })
+  }
+
+  ngOnInit(){
+    // this.callTheApi()
   }
 
 }
