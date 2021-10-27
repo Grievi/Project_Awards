@@ -16,7 +16,6 @@ export class LoginComponent implements OnInit {
     let loginForm = new FormData();
     loginForm.append('username',this.username)
     loginForm.append('password',this.password)
-    
 
     return this.service.loginUser(loginForm).subscribe(response=>{
       console.log(response)
