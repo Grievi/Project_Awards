@@ -8,6 +8,7 @@ import { ProjectService} from '../../service/project.service'
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
+  // data:data[]=[]
   result:Project[]=[]
 
   constructor(private api:ProjectService) { }

@@ -7,11 +7,20 @@ import {ProjectService} from '../../service/project.service'
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  username:string = '';
+  password:string = '';
 
   constructor(private service: ProjectService) { }
 
   retrieve(){
-    return this.service
+    let loginForm = new FormData();
+    loginForm.append('username',this.username)
+    loginForm.append('password',this.password)
+    
+
+    return this.service.loginUser(loginForm).subscribe(response=>{
+      console.log(response)
+    })
   }
 
   ngOnInit(): void {
