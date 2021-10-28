@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  link:'http://127.0.0.1:8000'
+  link:'http://127.0.0.1:8000',
+  My_Token:'1dc51132962d7eda3f7756cfecda722741855e54'
 };
 
 /*
