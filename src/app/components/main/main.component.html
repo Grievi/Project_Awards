@@ -23,11 +23,15 @@
     <div class="row">
         <div *ngFor="let results of result" class="col-md-4">
             <div class="card" style="width: 18rem;">
-                <img src="" class="card-img-top" alt="...">
+              <h5 class="card-title">{{ results.project_name }}</h5>
+                <img src="{{ results.project_img }}" class="card-img-top" alt="...">
                 <div class="card-body">
-                  <h5 class="card-title">{{results.project_name}}</h5>
-                  <p class="card-text">{{results.description}}</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                  <p class="card-text">{{ results.description }}</p>
+                  <a href="{{ results.project_url }}}" class="btn btn-outline-primary">View Project</a>
+                  <!-- <div>
+                    <span>{{ results.proj_perfomance }}</span>
+                  </div> -->
+                  
                 </div>
               </div>
         </div>

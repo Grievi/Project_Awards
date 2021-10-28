@@ -8,6 +8,10 @@ import {map} from 'rxjs/operators'
 })
 export class ProjectService {
 
+  // private username:any;
+  
+  // private token=;
+
   constructor(private http:HttpClient) {
 
    }
