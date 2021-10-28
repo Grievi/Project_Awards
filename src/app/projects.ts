@@ -1,5 +1,5 @@
 export class Project {
-    constructor(public title:string, public description:string, public url:any, public image:any){
+    constructor(public project_name:string, public description:string, public project_url:any, public project_img:any){
 
     }
 }

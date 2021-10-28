@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Project } from '../../projects'
 import { ProjectService} from '../../service/project.service'
 
@@ -10,18 +11,19 @@ import { ProjectService} from '../../service/project.service'
 export class MainComponent implements OnInit {
   // data:data[]=[]
   result:Project[]=[]
+  router: any;
 
   constructor(private api:ProjectService) { }
 
   callTheApi(){
     this.api.getApi().subscribe((result:any)=>{
-      console.log('success', result);
       this.result=result
+      console.log('success', this.result);
     })
   }
 
   ngOnInit(){
-    // this.callTheApi()
+    this.callTheApi()
   }
 
 }
