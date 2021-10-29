@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Project } from 'src/app/projects';
+import { ProjectService } from 'src/app/service/project.service';
+
 
 @Component({
   selector: 'app-projects',
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectsComponent implements OnInit {
 
-  constructor() { }
+  result:Project[]=[]
+  
 
+  constructor(private api:ProjectService) { }
+
+  callProjectApi(){ 
+    this.api.getApi().subscribe((result:any)=>{
+      this.result=result
+      console.log('success', this.result);
+    })
+        
+      }
+    
+  
   ngOnInit(): void {
+    this.callProjectApi()
   }
 
 }

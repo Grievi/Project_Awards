@@ -26,18 +26,18 @@
          </div>
         </div>
     </div>
-    <div class="row">
-        <div *ngFor="let results of result" class="col-md-4">
+    <div class="row mt-5 ">
+        <div *ngFor="let results of result" class="col-md-4 col-sm-12">
             <div class="card" style="width: 18rem;">
               <h5 class="card-title">{{ results.project_name }}</h5>
                 <img src="{{ results.project_img }}" class="card-img-top" alt="...">
                 <div class="card-body">
-                  <p class="card-text">{{ results.description }}</p>
-                  <a href="{{ results.project_url }}}" class="btn btn-outline-primary">View Project</a>
-                  <!-- <div>
-                    <span>{{ results.proj_perfomance }}</span>
-                  </div> -->
-                  
+                  <p class="card-text">{{ results.description }}...</p>
+                  <a href="{{ results.project_url }}}" class="btn btn-outline-primary ">View Project</a>
+                                
+                </div>
+                <div class="mb-3 ">
+                  <a class="btn btn-outline-secondary mb-3 ms-3" routerLink="/projects" routerLinkActive="active">View the project</a>    
                 </div>
               </div>
         </div>
