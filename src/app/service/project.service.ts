@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 
@@ -14,17 +14,25 @@ export class ProjectService {
   constructor(private http:HttpClient, private route:Router) {
 
    }
+  
+  getApi(){
+    return this.http.get(environment.link + `/Project/`)
+  }
+  
+  reviewApi(){
+    return this.http.get(environment.link + `/Review/`)
+  }
+  registerUser(userData: any){
+    console.log("It has worked!")
+    this.http.post(environment.link + `/accounts/register/`,userData).subscribe(response=>{
+      let user:any = response
+      this.route.navigate(['login'])
+      return user
+    },error=>{
+      console.log(error)
+    })
+  }
 
-   getApi(){
-    // let HttpHeaders:any = new HttpHeaders({
-    //   'authorization':environment.My_Token
-    // })
-     return this.http.get(environment.link + `/Project/`)
-   }
-
-   reviewApi(){
-     return this.http.get(environment.link + `/Review/`)
-   }
 
    loginUser(credentials:any){
      console.log("It has worked!")  
@@ -39,4 +47,18 @@ export class ProjectService {
    logout(){
      sessionStorage.removeItem('currentUser');
    }
+
+   
+
+   postProj(projectsData: any){
+    this.http.post(environment.link + `/Project/`,projectsData).subscribe(response =>{
+      return response
+    })
+  }
+
 }
+
+
+
+
+

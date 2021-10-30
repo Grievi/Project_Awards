@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row mb-3">
         <div class="col-md-8 ">
-            <div *ngFor="let results of result" class="col-md-4 col-sm-12">
+            <div *ngFor="let results of result" class="mt-3">
                 <div class="card" style="width: 18rem;">
                   <h5 class="card-title">{{ results.project_name }}</h5>
                     <img src="{{ results.project_img }}" class="card-img-top" alt="...">
@@ -12,34 +12,28 @@
                     </div>
                     
                   </div>
-                  <!-- <div *ngFor="let datas of data" class="mb-3 ">
-
-                    <ul>
-                        <span>{{}}</span>
-                        <li>{{}}</li>
-                        <li>{{}}</li>
-                        <li>{{}}</li>
-                        <li>{{}}</li>
-                    </ul>   
-                  </div> -->
             </div>
         </div>
         <div class="col-md-4">
-            <form action="">
+            <form enctype="multipart/form-data" action="">
                 <div class="mb-3">
                     <label for="project_name" class="form-label">Project Name</label>
-                    <input type="text"  name="projectName" class="form-control" id="projectName">
+                    <input type="text" [(ngModel)]="project_name"   name="project_name" class="form-control" id="projectName">
                 </div>
                 <div class="mb-3">
                     <label for="description" class="form-label">Project Description</label>
-                    <input type="text"  name="description" class="form-control" id="description">
+                    <textarea name="description" [(ngModel)]="description" name="description" id="description" cols="30" rows="10"></textarea>
                 </div>
-                
+                <div class="mb-3">
+                    <label for="project_img" class="form-label">Project Image</label>
+                    <input type="file" [(ngModel)]="project_img" name="project_img" accept="image/png, image/jpeg">
+                    
+                </div>
                 <div class="mb-3">
                     <label for="project_url" class="form-label">Project Url Link</label>
-                    <input type="url"  name="project_url" class="form-control" id="project_url">
+                    <input type="url" [(ngModel)]="project_url"  name="project_url" class="form-control" id="project_url">
                 </div>
-                <button type="submit" class="btn btn-outline-primary">Submit</button>
+                <button (click)="postProject()" type="submit" class="btn btn-outline-primary">Submit</button>
             </form>
         </div>
     </div>
