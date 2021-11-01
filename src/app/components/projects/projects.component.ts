@@ -34,13 +34,16 @@ export class ProjectsComponent implements OnInit {
     this.callProjectApi()
     
   }
+  onImageChange(event: any){
+    this.project_img = event.target.files[0]
+  }
 
   postProject(){
     let projectForm= new FormData();
     projectForm.append('project_name', this.project_name)
     projectForm.append('description', this.description)
-    projectForm.append('project_img', this.project_img)
     projectForm.append('project_url', this.project_url)
+    projectForm.append('project_img', this.project_img)
     console.log(projectForm)
     this.api.postProj(projectForm)
 

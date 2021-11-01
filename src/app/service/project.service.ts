@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 
@@ -51,7 +51,10 @@ export class ProjectService {
    
 
    postProj(projectsData: any){
-    this.http.post(environment.link + `/Project/`,projectsData).subscribe(response =>{
+    let headers = new HttpHeaders({
+      'Authorization':`Token ${sessionStorage.getItem('token')}`
+    })
+    this.http.post(environment.link + `/Project/`,projectsData, {'headers':headers}).subscribe(response =>{
       return response
     })
   }

@@ -26,7 +26,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="project_img" class="form-label">Project Image</label>
-                    <input type="file" [(ngModel)]="project_img" name="project_img" accept="image/png, image/jpeg">
+                    <input type="file" (change)="onImageChange($event)" name="project_img" accept="image/png, image/jpeg">
                     
                 </div>
                 <div class="mb-3">
